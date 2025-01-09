@@ -1,5 +1,7 @@
 "use client";
 
+import API from "@/lib/axios";
+import { useEffect, useState } from "react";
 import {
   Line,
   LineChart,
@@ -9,16 +11,21 @@ import {
   YAxis,
 } from "recharts";
 
-const data = [
-  { month: "Jan", Sports: 4000, Fashion: 2400, Automobile: 2400, News: 1800 },
-  { month: "Feb", Sports: 3000, Fashion: 1398, Automobile: 2210, News: 2000 },
-  { month: "Mar", Sports: 2000, Fashion: 9800, Automobile: 2290, News: 2500 },
-  { month: "Apr", Sports: 2780, Fashion: 3908, Automobile: 2000, News: 1900 },
-  { month: "May", Sports: 1890, Fashion: 4800, Automobile: 2181, News: 2100 },
-  { month: "Jun", Sports: 2390, Fashion: 3800, Automobile: 2500, News: 2300 },
-];
-
 export function MonthlyLikesByGenreChart() {
+  const [data, setData] = useState<any>([]);
+  const getData = async () => {
+    try {
+      const response = await API.get("/monthly-likes-by-genre-graph");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={350}>
       <LineChart data={data}>
@@ -37,25 +44,22 @@ export function MonthlyLikesByGenreChart() {
           tickFormatter={(value) => `${value}`}
         />
         <Tooltip />
-        <Line
-          type="monotone"
-          dataKey="Sports"
-          stroke="#8884d8"
-          strokeWidth={2}
-        />
-        <Line
-          type="monotone"
-          dataKey="Fashion"
-          stroke="#82ca9d"
-          strokeWidth={2}
-        />
-        <Line
-          type="monotone"
-          dataKey="Automobile"
-          stroke="#ffc658"
-          strokeWidth={2}
-        />
-        <Line type="monotone" dataKey="News" stroke="#ff7300" strokeWidth={2} />
+        {data.length > 0 &&
+          Object.keys(data[0])
+            .slice(1)
+            .map((key, index) => (
+              <Line
+                type="monotone"
+                dataKey={key}
+                stroke={
+                  index % 2 === 0
+                    ? `hsl(${index * 60}, 70%, 50%)`
+                    : `hsl(${index * 60 + 30}, 70%, 50%)`
+                }
+                strokeWidth={2}
+                key={key}
+              />
+            ))}
       </LineChart>
     </ResponsiveContainer>
   );

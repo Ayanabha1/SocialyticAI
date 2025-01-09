@@ -27,7 +27,7 @@ export default function LandingPage() {
               <Github className="group-hover:text-primary" />
             </Button>
             <Button asChild variant="default">
-              <Link href="/dashboard">Launch Dashboard</Link>
+              <Link href="/dashboard">Dashboard</Link>
             </Button>
           </div>
         </div>

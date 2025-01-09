@@ -1,5 +1,7 @@
 "use client";
 
+import API from "@/lib/axios";
+import { useEffect, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -9,16 +11,21 @@ import {
   Tooltip,
 } from "recharts";
 
-const data = [
-  { month: "Jan", Reels: 4000, Static: 2400, Carousel: 2400 },
-  { month: "Feb", Reels: 3000, Static: 1398, Carousel: 2210 },
-  { month: "Mar", Reels: 2000, Static: 9800, Carousel: 2290 },
-  { month: "Apr", Reels: 2780, Static: 3908, Carousel: 2000 },
-  { month: "May", Reels: 1890, Static: 4800, Carousel: 2181 },
-  { month: "Jun", Reels: 2390, Static: 3800, Carousel: 2500 },
-];
-
 export function MonthlyLikesByPostTypeChart() {
+  const [data, setData] = useState<any>([]);
+  const getData = async () => {
+    try {
+      const response = await API.get("/monthly-likes-by-type-graph");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={data}>

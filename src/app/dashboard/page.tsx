@@ -12,7 +12,7 @@ import { StatsBoard } from "@/components/stats-board";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { RecentActivityTable } from "@/components/recent-activity-table";
+import { RecentPostsTable } from "@/components/recent-post-table";
 
 export default function Dashboard() {
   return (
@@ -40,7 +40,7 @@ export default function Dashboard() {
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Monthly Likes by Post Type</CardTitle>
+                <CardTitle>Monthly Average Likes by Post Type</CardTitle>
                 <CardDescription>
                   Comparison of likes across different post types
                 </CardDescription>
@@ -51,7 +51,7 @@ export default function Dashboard() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Monthly Likes by Genre</CardTitle>
+                <CardTitle>Monthly Average Likes by Genre</CardTitle>
                 <CardDescription>
                   Trend of likes across different genres
                 </CardDescription>
@@ -78,15 +78,7 @@ export default function Dashboard() {
       </Tabs>
 
       <Card>
-        <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
-          <CardDescription>
-            Your latest social media interactions
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <RecentActivityTable />
-        </CardContent>
+        <RecentPostsTable />
       </Card>
     </div>
   );

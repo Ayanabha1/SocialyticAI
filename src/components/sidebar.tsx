@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart, MessageSquare } from "lucide-react";
+import { BarChart, LayoutDashboard, MessageSquare } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { icon: BarChart, label: "Dashboard", href: "/dashboard" },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   {
     icon: MessageSquare,
-    label: "Recommendation",
-    href: "/dashboard/recommendation",
+    label: "Content Strategy Advisor",
+    href: "/dashboard/content-strategy-advisor",
   },
 ];
 
@@ -22,7 +22,7 @@ export function Sidebar() {
   if (pathname === "/") return null;
 
   return (
-    <div className="w-64 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="w-72 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-full flex-col">
         <div className="flex h-14 items-center px-4 mt-7">
           <Link
@@ -34,7 +34,7 @@ export function Sidebar() {
           </Link>
         </div>
         <div className="flex-1 overflow-auto py-2 mt-5">
-          <nav className="grid items-start px-4 text-sm font-medium">
+          <nav className="grid items-start px-4 text-md font-medium">
             {menuItems.map((item, index) => (
               <Link key={index} href={item.href}>
                 <span

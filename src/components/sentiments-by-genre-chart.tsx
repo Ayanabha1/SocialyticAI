@@ -1,5 +1,7 @@
 "use client";
 
+import API from "@/lib/axios";
+import { useEffect, useState } from "react";
 import {
   Cell,
   Pie,
@@ -9,14 +11,21 @@ import {
   Tooltip,
 } from "recharts";
 
-const data = [
-  { name: "Sports", value: 400, color: "#0088FE" },
-  { name: "Fashion", value: 300, color: "#00C49F" },
-  { name: "Automobile", value: 300, color: "#FFBB28" },
-  { name: "News", value: 200, color: "#FF8042" },
-];
-
 export function SentimentsByGenreChart() {
+  const [data, setData] = useState<any>([]);
+  const getData = async () => {
+    try {
+      const response = await API.get("/sentiments-by-genre-chart");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={350}>
       <PieChart>
@@ -30,7 +39,7 @@ export function SentimentsByGenreChart() {
           paddingAngle={5}
           dataKey="value"
         >
-          {data.map((entry, index) => (
+          {data.map((entry: any, index: number) => (
             <Cell key={`cell-${index}`} fill={entry.color} />
           ))}
         </Pie>
