@@ -11,9 +11,9 @@ import {
   Instagram,
   Bot,
   PieChart,
+  Github,
 } from "lucide-react";
 import { useRef } from "react";
-import Image from "next/image";
 import { Features } from "@/components/features";
 import { FAQ } from "@/components/faq";
 
@@ -25,41 +25,49 @@ export default function LandingPage() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full left-[50%] translate-x-[-50%] z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link className="flex items-center space-x-2" href="/">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-primary rounded-lg rotate-6" />
-              <div className="absolute inset-0 bg-primary/80 rounded-lg rotate-2" />
-              <BarChart2 className="relative h-8 w-8 text-primary-foreground p-1.5" />
+          <div className="flex gap-10 items-center">
+            <Link className="flex items-center space-x-2" href="/">
+              <div className="relative w-8 h-8">
+                <div className="absolute inset-0 bg-primary rounded-lg rotate-6" />
+                <div className="absolute inset-0 bg-primary/80 rounded-lg rotate-2" />
+                <BarChart2 className="relative h-8 w-8 text-primary-foreground p-1.5" />
+              </div>
+              <span className="text-xl font-bold text-primary mr-10">
+                SocialyticAI
+              </span>
+            </Link>
+
+            <div className="hidden md:flex items-center space-x-6">
+              <Link
+                className="text-sm font-medium hover:text-primary transition-colors"
+                href="#features"
+              >
+                Features
+              </Link>
+              <Link
+                className="text-sm font-medium hover:text-primary transition-colors"
+                href="#how-it-works"
+              >
+                How It Works
+              </Link>
+
+              <Link
+                className="text-sm font-medium hover:text-primary transition-colors"
+                href="#faq"
+              >
+                FAQ
+              </Link>
             </div>
-            <span className="text-xl font-bold text-primary">SocialyticAI</span>
-          </Link>
-          <div className="hidden md:flex items-center space-x-6">
-            <Link
-              className="text-sm font-medium hover:text-primary transition-colors"
-              href="#features"
-            >
-              Features
-            </Link>
-            <Link
-              className="text-sm font-medium hover:text-primary transition-colors"
-              href="#how-it-works"
-            >
-              How It Works
-            </Link>
-            <Link
-              className="text-sm font-medium hover:text-primary transition-colors"
-              href="#testimonials"
-            >
-              Testimonials
-            </Link>
-            <Link
-              className="text-sm font-medium hover:text-primary transition-colors"
-              href="#faq"
-            >
-              FAQ
-            </Link>
           </div>
           <div className="flex items-center space-x-4">
+            <Link
+              href="https://github.com/NityaSG/Socialytic-Ai"
+              target="_blank"
+            >
+              <Button variant="outline" className="shadow-sm">
+                <Github className="w-10 h-10" />
+              </Button>
+            </Link>
             <Button asChild>
               <Link href="/dashboard">Dashboard</Link>
             </Button>
@@ -115,7 +123,13 @@ export default function LandingPage() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg">
-                <Play className="mr-2 h-4 w-4" /> Play Demo
+                <Link
+                  href="https://www.youtube.com/watch?v=H2tHNKzbLVk"
+                  target="_blank"
+                  className="flex items-center"
+                >
+                  <Play className="mr-2 h-4 w-4" /> Play Demo
+                </Link>
               </Button>
             </div>
           </motion.div>
