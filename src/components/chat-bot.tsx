@@ -31,8 +31,9 @@ interface ChatMessage {
 }
 
 const exampleQuestions = [
-  "Show me average month by month likes for each post type with bar graph.",
+  "Show me average month by month likes for each post type with bar chart.",
   "Show me average month by month likes for each genre.",
+  "What is the most trending genre in the past 6 months?",
   "Which content genre has the highest average sentiment score?",
   "What's the best time to post for maximum engagement based on historical data?",
   "Which hashtags are associated with the highest reach in our posts?",
