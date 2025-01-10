@@ -80,6 +80,8 @@ export default function ContentAdvisor() {
     ${targetAge ? `Target Age: ${targetAge}` : ""}
     ${postFrequency ? `Post Frequency: ${postFrequency}` : ""}
     ${description ? `Additional description about me: ${description}` : ""}
+    
+    Try to create some examples as well at the end. Just make up anything you want based on the details you are providing.
     `;
       console.log(prompt);
 

@@ -2,17 +2,23 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart, LayoutDashboard, MessageSquare } from "lucide-react";
+import {
+  BarChart2,
+  ChartPie,
+  LayoutDashboard,
+  MessageSquare,
+} from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   {
-    icon: MessageSquare,
+    icon: ChartPie,
     label: "Content Strategy Advisor",
     href: "/dashboard/content-strategy-advisor",
   },
+  { icon: MessageSquare, label: "Ask Me Anything", href: "/dashboard/chat" },
 ];
 
 export function Sidebar() {
@@ -29,7 +35,7 @@ export function Sidebar() {
             className="flex items-center gap-2 font-semibold text-2xl"
             href="/dashboard"
           >
-            <BarChart className="h-7 w-7 text-primary" />
+            <BarChart2 className="h-7 w-7 text-primary" />
             <span className="text-primary">SocialyticAI</span>
           </Link>
         </div>

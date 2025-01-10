@@ -3,19 +3,19 @@ import { Badge } from "@/components/ui/badge";
 
 const stats = [
   {
-    title: "Carousel Engagement",
+    title: "Best Performing Media Type",
     value: "20% Higher",
     description: "Carousel posts have 20% higher engagement than static posts.",
     trend: "up",
   },
   {
-    title: "Reels Comments",
+    title: "Best Performing Genre",
     value: "2x More",
     description: "Reels drive 2x more comments compared to other formats.",
     trend: "up",
   },
   {
-    title: "Fashion vs Sports",
+    title: "Sports vs News (December)",
     value: "20% More Likes",
     description:
       "Fashion related posts are getting 20% more likes than Sports.",

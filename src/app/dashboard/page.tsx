@@ -17,18 +17,6 @@ import { RecentPostsTable } from "@/components/recent-post-table";
 export default function Dashboard() {
   return (
     <div className="space-y-8 px-10">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <h2 className="text-3xl font-bold tracking-tight ">Dashboard</h2>
-        <div className="flex space-x-2">
-          <Button>
-            Generate Report <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button variant="outline">
-            <Download className="mr-2 h-4 w-4" /> Export Data
-          </Button>
-        </div>
-      </div>
-
       <StatsBoard />
 
       <Tabs defaultValue="likes" className="space-y-4">
