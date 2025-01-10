@@ -120,21 +120,24 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
-          {/* Platform Preview */}
+          {/* Platform Preview Video*/}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-5xl mx-auto mb-16"
+            className="max-w-5xl mx-auto mb-16 shadow-lg rounded-xl"
           >
             <div className="aspect-video rounded-xl overflow-hidden border border-border shadow-lg">
-              <Image
-                src="/placeholder.svg?height=720&width=1280"
-                width={1280}
-                height={720}
-                alt="SocialyticAI Dashboard Preview"
-                className="w-full h-auto"
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/demo.mov" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </motion.div>
         </div>
