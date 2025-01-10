@@ -102,7 +102,10 @@ export function RecentPostsTable() {
                     <div>
                       <p className="font-medium line-clamp-2">{post.caption}</p>
                       <div className="flex items-center space-x-2 mt-1">
-                        <Badge variant="outline">{post.genre}</Badge>
+                        <Badge variant="outline">
+                          {post.genre.charAt(0).toUpperCase() +
+                            post.genre.slice(1)}
+                        </Badge>
                         <span className="text-xs text-muted-foreground">
                           {formatDistanceToNow(new Date(post.post_date), {
                             addSuffix: true,
@@ -126,13 +129,7 @@ export function RecentPostsTable() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <Badge
-                      variant={getSentimentBadgeVariant(
-                        Number(post.sentiment.$numberDouble)
-                      )}
-                    >
-                      {getSentimentLabel(Number(post.sentiment.$numberDouble))}
-                    </Badge>
+                    <Badge>Sentiment: {Number(post.sentiment)}</Badge>
                     <a
                       href={post.post_url}
                       target="_blank"
