@@ -260,7 +260,7 @@ export default function ContentAdvisor() {
                   />
                 </svg>
               )}
-              Get content-strategy-advisor
+              Get Recommendation
             </Button>
           </div>
         </form>
